@@ -58,8 +58,8 @@ def add_play(body):
             # SQL: Usamos nextval('plays_id_seq') para generar el ID de forma segura y atómica
             # Si tu tabla se llama 'plays' y la secuencia 'plays_id_seq' (estándar en tu init.sql)
             cur.execute("""
-                INSERT INTO plays (id, user_id, track_id, timestamp)
-                VALUES (nextval('public.plays_id_seq'), %s, %s, %s)
+                INSERT INTO plays (user_id, track_id, timestamp)
+                VALUES (%s, %s, %s)
             """, (play['user_id'], play['track_id'], datetime.now()))
             
             conn.commit()
@@ -86,8 +86,8 @@ def add_like(body):
         try:
             # SQL: Usamos nextval('likes_id_seq')
             cur.execute("""
-                INSERT INTO likes (id, user_id, track_id, timestamp)
-                VALUES (nextval('public.likes_id_seq'), %s, %s, %s)
+                INSERT INTO likes (user_id, track_id, timestamp)
+                VALUES (%s, %s, %s)
                 ON CONFLICT (user_id, track_id) DO NOTHING
             """, (like['user_id'], like['track_id'], datetime.now()))
             
