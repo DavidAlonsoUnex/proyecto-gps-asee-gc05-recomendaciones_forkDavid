@@ -14,7 +14,7 @@ class Recommendation(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, user_id: int=None, track_id: int=None):  # noqa: E501
+    def __init__(self, user_id: str=None, track_id: str=None):  # noqa: E501
         """Recommendation - a model defined in OpenAPI
 
         :param user_id: The user_id of this Recommendation.  # noqa: E501
@@ -23,8 +23,8 @@ class Recommendation(Model):
         :type track_id: int
         """
         self.openapi_types = {
-            'user_id': int,    # <--- CAMBIO: int
-            'track_id': int    # <--- CAMBIO: int
+            'user_id': str,    # <--- CAMBIO: int
+            'track_id': str    # <--- CAMBIO: int
         }
 
         self.attribute_map = {
@@ -47,7 +47,7 @@ class Recommendation(Model):
         return util.deserialize_model(dikt, cls)
 
     @property
-    def user_id(self) -> int:
+    def user_id(self) -> str:
         """Gets the user_id of this Recommendation.
 
 
@@ -57,7 +57,7 @@ class Recommendation(Model):
         return self._user_id
 
     @user_id.setter
-    def user_id(self, user_id: int):
+    def user_id(self, user_id: str):
         """Sets the user_id of this Recommendation.
 
 
@@ -68,7 +68,7 @@ class Recommendation(Model):
         self._user_id = user_id
 
     @property
-    def track_id(self) -> int:
+    def track_id(self) -> str:
         """Gets the track_id of this Recommendation.
 
 
@@ -78,7 +78,7 @@ class Recommendation(Model):
         return self._track_id
 
     @track_id.setter
-    def track_id(self, track_id: int):
+    def track_id(self, track_id: str):
         """Sets the track_id of this Recommendation.
 
 
