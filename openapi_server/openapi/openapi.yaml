@@ -60,7 +60,8 @@ paths:
           in: path
           required: true
           schema:
-            type: string        # <--- CAMBIO: string (para aceptar IDs flexibles)
+            type: integer
+            format: int64
       responses:
         "200":
           description: OK
@@ -86,7 +87,8 @@ paths:
           in: path
           required: true
           schema:
-            type: string        # <--- CAMBIO: string
+            type: integer
+            format: int64
       responses:
         "200":
           description: OK
@@ -112,7 +114,8 @@ paths:
           in: path
           required: true
           schema:
-            type: string        # <--- CAMBIO: string
+            type: integer
+            format: int64
       responses:
         "200":
           description: OK
@@ -138,7 +141,8 @@ paths:
           in: path
           required: true
           schema:
-            type: string        # <--- CAMBIO: string
+            type: integer
+            format: int64
       responses:
         "200":
           description: OK
@@ -164,7 +168,8 @@ paths:
           in: path
           required: true
           schema:
-            type: string        # <--- CAMBIO: string
+            type: integer
+            format: int64
       responses:
         "200":
           description: OK
@@ -190,7 +195,8 @@ paths:
           in: path
           required: true
           schema:
-            type: string        # <--- CAMBIO: string
+            type: integer
+            format: int64
       responses:
         "200":
           description: OK
@@ -234,7 +240,8 @@ paths:
           in: path
           required: true
           schema:
-            type: string        # <--- CAMBIO: string
+            type: integer
+            format: int64
         - name: type
           in: query
           required: false
@@ -267,11 +274,11 @@ components:
           format: int64
           readOnly: true
         user_id:
-          type: string          # <--- IMPORTANTE: string para validar "1001"
-          example: "1001"
+          type: integer
+          format: int64
         track_id:
-          type: string          # <--- IMPORTANTE: string para validar "5050"
-          example: "5050"
+          type: integer
+          format: int64
         timestamp:
           type: string
           format: date-time
@@ -287,11 +294,11 @@ components:
           format: int64
           readOnly: true
         user_id:
-          type: string          # <--- IMPORTANTE: string para validar "1001"
-          example: "1001"
+          type: integer
+          format: int64
         track_id:
-          type: string          # <--- IMPORTANTE: string para validar "5050"
-          example: "5050"
+          type: integer
+          format: int64
         timestamp:
           type: string
           format: date-time
@@ -308,7 +315,8 @@ components:
         name:
           type: string
         artist_id:
-          type: string          # <--- CAMBIO: string por consistencia
+          type: integer
+          format: int64
         genre:
           type: string
       required:
