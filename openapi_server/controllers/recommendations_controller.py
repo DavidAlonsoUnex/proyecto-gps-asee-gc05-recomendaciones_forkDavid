@@ -134,6 +134,7 @@ def get_top_tracks():
             "id": item['track_id'],
             "plays": item['total_plays'],
             "title": track_info['title'] if track_info else f"Track {item['track_id']}",
+            "album_id": track_info.get('album_id') if track_info else None,
             "artist_id": track_info.get('artist_id') if track_info else None
         }
         result.append(track_data)
