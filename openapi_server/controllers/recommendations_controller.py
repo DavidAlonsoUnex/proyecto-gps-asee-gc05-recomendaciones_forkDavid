@@ -399,8 +399,8 @@ def get_track_likes(idTrack):
     conn.close()
     return [{"track_id": idTrack, "likes": count}]
 
-def get_artist_top_tracks(idArtist):
-    tracks_data = _fetch_from_content(f"/artists/{idArtist}/tracks")
+def get_artist_top_tracks(id_artist):
+    tracks_data = _fetch_from_content(f"/artists/{id_artist}/tracks")
     if not tracks_data: return []
     track_ids = [t['id'] for t in tracks_data]
     if not track_ids: return []
@@ -423,5 +423,7 @@ def get_artist_top_tracks(idArtist):
     result = []
     for item in ranking:
         original_track = next((t for t in tracks_data if t['id'] == item['track_id']), None)
-        if original_track: result.append(original_track)
-    return result
+        if original_track:
+            original_track['score'] = item['plays']  # El frontend espera 'score' o 'plays'
+            result.append(original_track)
+    return result, 200
